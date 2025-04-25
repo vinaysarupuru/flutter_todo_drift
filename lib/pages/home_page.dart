@@ -148,9 +148,8 @@ class HomePage extends ConsumerWidget {
     if (done) return Colors.grey;
 
     final today = DateTime.now();
-    print('Today: $today');
+
     final difference = dueDate.difference(today).inDays;
-    print('Due date: $dueDate, Difference: $difference');
 
     if (dueDate.isBefore(DateTime(today.year, today.month, today.day))) {
       return Colors.red; // Overdue
