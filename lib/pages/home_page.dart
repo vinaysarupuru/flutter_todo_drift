@@ -12,8 +12,6 @@ class HomePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final selectedFilter = ref.watch(todoFilterProvider);
-
     return Scaffold(
       appBar: AppBar(title: const Text('Todo List')),
       body: Column(
