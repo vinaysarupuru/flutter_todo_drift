@@ -1,7 +1,7 @@
 name: flutter_todo_drift
-description: "A new Flutter project."
+description: A Flutter todo application built with Drift database for local storage and Riverpod for state management.
 publish_to: 'none'
-version: 0.1.0
+version: 1.0.0+1
 
 environment:
   sdk: ^3.7.2

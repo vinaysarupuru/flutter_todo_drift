@@ -6,6 +6,7 @@ import '../database/app_database.dart';
 import '../providers/todo_providers.dart';
 import '../repository/todo_repository.dart';
 import '../service_locator.dart';
+import '../providers/theme_provider.dart';
 
 class HomePage extends ConsumerWidget {
   const HomePage({super.key});
@@ -13,7 +14,27 @@ class HomePage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Todo List')),
+      appBar: AppBar(
+        title: const Text('Todo App'),
+        actions: [
+          Consumer(
+            builder: (context, ref, _) {
+              final currentTheme = ref.watch(themeProvider);
+              return IconButton(
+                icon: Icon(
+                  currentTheme == ThemeMode.dark
+                      ? Icons.light_mode
+                      : Icons.dark_mode,
+                ),
+                onPressed: () {
+                  ref.read(themeProvider.notifier).toggleTheme();
+                },
+                tooltip: 'Toggle theme',
+              );
+            },
+          ),
+        ],
+      ),
       body: Column(
         children: [
           // Filter tabs
